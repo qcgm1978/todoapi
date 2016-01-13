@@ -1,0 +1,35 @@
+{
+  "name": "todoapi",
+  "version": "1.0.0",
+  "description": "Simple api for todo",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rajzshkr/todoapi.git"
+  },
+  "keywords": [
+    "Node",
+    "express",
+    "todo"
+  ],
+  "author": "Raja Sekar <rajasekar89be@gmail.com> (http://rajasekarm.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajzshkr/todoapi/issues"
+  },
+  "homepage": "https://github.com/rajzshkr/todoapi#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "chai": "^3.4.1",
+    "express": "^4.13.3",
+    "method-override": "^2.3.5",
+    "mocha": "^2.3.4",
+    "mongoose": "^4.3.5",
+    "morgan": "^1.6.1",
+    "request": "^2.67.0"
+  }
+}
