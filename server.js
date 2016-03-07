@@ -4,7 +4,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var config = require('./app/config/config');
-var cors = require('cors')
+var cors = require('cors');
 var app = express();
 
 app.use(morgan('dev'));                                         // log every request to the console
