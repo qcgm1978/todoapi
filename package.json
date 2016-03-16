@@ -4,7 +4,7 @@
   "description": "Simple api for todo",
   "main": "server.js",
   "scripts": {
-    "start": "grunt",
+    "start": "nodemon server.js",
     "test": "grunt test"
   },
   "repository": {
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/rajzshkr/todoapi#readme",
   "dependencies": {
     "body-parser": "^1.14.2",
+    "cors": "^2.7.1",
     "express": "^4.13.3",
     "method-override": "^2.3.5",
     "mongoose": "^4.3.5",
