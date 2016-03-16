@@ -13,14 +13,22 @@ app.use(bodyParser.json());                                     // parse applica
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride());
 
-require('./app/controllers/router')(app);
+require('./app/router/router')(app);
 
-var db = mongoose.connect(config.db);
+var db;
+
+if(process.env.NODE_ENV === "test"){
+	db = mongoose.connect(config.test_db);
+	app.listen(config.test_port);
+	console.log("App listening on port "+config.test_port);
+}else{
+ 	db = mongoose.connect(config.db);
+ 	app.listen(config.port);
+ 	console.log("App listening on port "+config.port);
+}
 
 mongoose.connection.on('connected', function () {  
   console.log('Mongoose default connection open to ' + config.db);
 }); 
 
-
-app.listen(config.port);
-console.log("App listening on port "+config.port);
+module.exports = app;
