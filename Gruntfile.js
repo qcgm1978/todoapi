@@ -9,6 +9,12 @@ module.exports = function(grunt) {
 		simplemocha: {
 			all: {
 				src: ['test/**/*.js']
+			},
+			unitTest: {
+				src: ['test/test.js']
+			},
+			integrationtest: {
+				src: ['test/integration/*.js']
 			}
 		},
 		env: {
@@ -28,9 +34,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-nodemon');
 	grunt.loadNpmTasks('grunt-simple-mocha');
 	grunt.loadNpmTasks('grunt-env');
-	// grunt.loadNpmTasks('grunt-environmental');
 	
 	grunt.registerTask('default', ['nodemon']);
 	grunt.registerTask('test', ['env:test', 'simplemocha']);
+	grunt.registerTask('unitTest', ['env:test', 'simplemocha:unitTest']);
+	grunt.registerTask('integrationTest', ['env:test', 'simplemocha:integrationTest']);
 
 };
