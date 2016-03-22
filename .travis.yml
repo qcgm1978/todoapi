@@ -1,6 +1,7 @@
 language: node_js
 node_js: 5.2.0
 before_install: npm install -g grunt-cli
+codecov --token=: a64303ba-c5d0-4002-b51b-a4c5707dc562
 after_success:
   - ./bin/codecov -e TRAVIS_NODE_VERSION
 deploy:
