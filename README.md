@@ -1,4 +1,5 @@
-# TODO API - Node/Mongodb [![Build Status](https://travis-ci.org/rajzshkr/todoapi.svg?branch=master)](https://travis-ci.org/rajzshkr/todoapi)
+# TODO API - Node/Mongodb 
+[![Build Status](https://travis-ci.org/rajzshkr/todoapi.svg?branch=master)](https://travis-ci.org/rajzshkr/todoapi) [![Dependency Status](https://david-dm.org/rajzshkr/todoapi.svg)](https://david-dm.org/rajzshkr/todoapi) [![devDependency Status](https://david-dm.org/rajzshkr/todoapi/dev-status.svg)](https://david-dm.org/rajzshkr/todoapi#info=devDependencies)
 
 Front end is changing day by day and we have to learn lot more stuffs. When we start learning a new framework or library, first thing is recommended to build a todo list which helps in doing all CRUD functions. But there is no solid backend/library available to make use of it to build a todo list.
 
