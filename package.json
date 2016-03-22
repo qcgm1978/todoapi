@@ -4,9 +4,8 @@
   "description": "Simple api for todo",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "grunt unitTest",
-    "integrationTest": "grunt integrationTest"
+    "start": "./node_modules/.bin/grunt nodemon",
+    "test": "./node_modules/.bin/grunt unitTest"
   },
   "repository": {
     "type": "git",

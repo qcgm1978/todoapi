@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 			unitTest: {
 				src: ['test/test.js']
 			},
-			integrationTest: {
+			integrationtest: {
 				src: ['test/integration/*.js']
 			}
 		},
