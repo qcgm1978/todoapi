@@ -2,9 +2,9 @@
 
 var should = require('should'),
 	request = require('supertest'),
-	app = require('../server.js'),
+	app = require('../../server.js'),
 	mongoose = require('mongoose'),
-	Book = mongoose.model('Todo'),
+	Todo = mongoose.model('Todo'),
 	agent = request.agent(app);
 
 describe('Todo CRUD integration testing', function () {
@@ -29,12 +29,7 @@ describe('Todo CRUD integration testing', function () {
 				done();
 			});
 		});
-
-		after(function (done) {
-			Book.remove().exec();
-			done();
-		});
-
+		
 	});
 	
 	describe('Post a todo', function () {

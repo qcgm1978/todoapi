@@ -41,7 +41,7 @@ var TodoCtrl = function(Todo){
 	TodoObj.DeleteTodo = function(req, res, next){
 		Todo.remove({_id : req.params.todo_id }, function(err, todos){
 			if(err) { 
-				res.json({status: false, error: "Deleting todo is not successfull"});
+				res.json({status: false, error: "Deleting todo is not successful"});
 			}
 			res.json({status: true, message: "Todo deleted successfully"});
 		});

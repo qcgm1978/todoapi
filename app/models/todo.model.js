@@ -16,6 +16,12 @@ TodoSchema.pre('save', function(next, done) {
   	next();
 });
 
+
+TodoSchema.method('UpdateTodo', function (id, callback) {
+
+});
+
+
 var TodoModel = mongoose.model('Todo', TodoSchema);
 
 module.exports = TodoModel;

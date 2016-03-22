@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "grunt test"
+    "test": "grunt unitTest",
+    "integrationTest": "grunt integrationTest"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "mocha": "^2.4.5",
     "should": "^8.2.2",
     "sinon": "^1.17.3",
+    "sinon-mongoose": "^1.2.1",
     "supertest": "^1.2.0"
   }
 }
