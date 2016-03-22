@@ -36,8 +36,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-env');
 	
 	grunt.registerTask('default', ['nodemon']);
-	grunt.registerTask('test', ['env:test', 'simplemocha']);
-	grunt.registerTask('unitTest', ['env:test', 'simplemocha:unitTest']);
+	// grunt.registerTask('test', ['env:test', 'simplemocha']);
+	grunt.registerTask('test', ['env:test', 'simplemocha:unitTest']);
 	grunt.registerTask('integrationTest', ['env:test', 'simplemocha:integrationTest']);
 
 };
