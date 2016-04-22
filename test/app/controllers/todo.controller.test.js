@@ -25,7 +25,7 @@ describe('TodoController testing', function () {
 			var res = {}, next = {};
 			var TodoController = require('../../../app/controllers/todo.controller')(Book);
 			TodoController.PostTodo(req, res, next);
-			sinon.assert.calledOnce(saveStub);
+			sinon.assert.calledOnce();
 		});
 
 		it('Should save todo', function (done) {
@@ -39,7 +39,7 @@ describe('TodoController testing', function () {
 			todo.save(function(err, result) {
 				todoMock.verify();
 				todoMock.restore();
-				should.equal('SAVED', result, "Test fails due to unexpected result")
+				should.equal('SAVED1', result, "Test fails due to unexpected result")
 				done();
 			});
 		});
@@ -56,7 +56,7 @@ describe('TodoController testing', function () {
 			TodoModel.find(function (err, result) {
 				TodoMock.verify();
 				TodoMock.restore();
-				should.equal('TODOS', result, "Test fails due to unexpected result")
+				should.equal('TODOS1', result, "Test fails due to unexpected result")
 				done();
 			});
 		});
@@ -71,7 +71,7 @@ describe('TodoController testing', function () {
 			.withArgs({_id: 12345})
 			.yields(null, 'DELETED');
 
-			TodoModel.remove({_id: 12345}, function(err, result){
+			TodoModel.remove({_id: 123145}, function(err, result){
 				TodoMock.verify();
 				TodoMock.restore();
 				done();
@@ -91,7 +91,7 @@ describe('TodoController testing', function () {
 			.withArgs({_id: 12345})
 			.yields(null, 'UPDATED');
 
-			todo.save({_id: 12345}, function(err, result){
+			todo.save({_id: 121345}, function(err, result){
 				todoMock.verify();
 				todoMock.restore();
 				done();
