@@ -7,6 +7,12 @@ var config = require('./app/config/config');
 var cors = require('cors');
 var app = express();
 
+var opbeat = require('opbeat').start({
+  appId: '873897962c',
+  organizationId: 'c1db293267274544b523bc8e0182443c',
+  secretToken: '3f4c16ad6b3f2453e9f5a04d94f58ce2fc081319'
+})
+
 app.use(morgan('dev'));                                         // log every request to the console
 app.use(cors());
 app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
@@ -28,8 +34,8 @@ if(process.env.NODE_ENV === "test"){
  	console.log("App listening on port "+config.port);
 }
 
-mongoose.connection.on('connected', function () {  
+mongoose.connection.on('connected', function () {
   console.log('Mongoose default connection open to ' + config.db);
-}); 
+});
 
 module.exports = app;

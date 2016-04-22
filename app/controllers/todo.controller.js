@@ -1,7 +1,7 @@
 "use strict";
 
 var TodoCtrl = function(Todo){
-	
+
 	var TodoObj = {};
 
 	TodoObj.PostTodo = function(req, res, next){
@@ -17,7 +17,7 @@ var TodoCtrl = function(Todo){
 
 	TodoObj.GetTodo = function(req, res, next){
 		Todo.find(function(err, todos){
-			if(err) { 
+			if(err) {
 				res.json({status: false, error: "Something went wrong"});
 				return
 			}
@@ -30,7 +30,7 @@ var TodoCtrl = function(Todo){
 		Todo.findById(req.params.todo_id, function(err, todo){
 			todo.completed = completed;
 			todo.save(function(err, todo){
-				if(err) { 
+				if(err) {
 					res.json({status: false, error: "Status not updated"});
 				}
 				res.json({status: true, message: "Status updated successfully"});
@@ -40,7 +40,7 @@ var TodoCtrl = function(Todo){
 
 	TodoObj.DeleteTodo = function(req, res, next){
 		Todo.remove({_id : req.params.todo_id }, function(err, todos){
-			if(err) { 
+			if(err) {
 				res.json({status: false, error: "Deleting todo is not successfull"});
 			}
 			res.json({status: true, message: "Todo deleted successfully"});
@@ -50,4 +50,4 @@ var TodoCtrl = function(Todo){
 	return TodoObj;
 }
 
-module.exports = TodoCtrl; 
+module.exports = TodoCtrl;
