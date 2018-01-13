@@ -6,9 +6,11 @@ Front end is changing day by day and we have to learn lot more stuffs. When we s
 
 This project is to help the front end engineers to build a todo app using this api without worring about the backend.
 
-####Documentation
+## Documentation
 
-###Get all Todo:
+A brief introduction of all api endpoints covered in this tutorial.
+
+### Get all Todo:
 
 url -  http://apitodo.herokuapp.com/api/todos   
 method - get
@@ -28,7 +30,7 @@ Error Response:
 {status: false, error: "Message"}
 ```
 
-###Post a todo
+### Post a todo
 
 url - http://apitodo.herokuapp.com/api/todos/
 method - post
@@ -54,7 +56,7 @@ Error Response:
 
 ```
 
-###Update status
+### Update status
 
 url: http://apitodo.herokuapp.com/api/todos/_id
 
@@ -74,7 +76,7 @@ Error Response:
 {status: false, error: "Status not updated"}
 
 ```
-###Deleting a todo
+### Deleting a todo
 url: http://apitodo.herokuapp.com/api/todos/_id
 method: delete
 
