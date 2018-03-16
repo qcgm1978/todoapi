@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/rajzshkr/todoapi#readme",
   "dependencies": {
+    "async-exit-hook": "^2.0.1",
     "body-parser": "^1.14.2",
     "codecov": "^1.0.1",
     "cors": "^2.7.1",
