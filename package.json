@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha test/app/io --recursive --watch",
-    "start": "./node_modules/.bin/grunt nodemon",
+    "start": "node app/models/app.js",
+    "fkill": "fkill 3000 -f -v",
     "test-bak": "istanbul cover node_modules/mocha/bin/_mocha && codecov"
   },
   "repository": {
@@ -48,8 +49,7 @@
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "should": "^8.2.2",
-    "sinon": "^1.17.3",
-    "sinon-mongoose": "^1.2.1",
+    "sinon": "^4.4.6",
     "supertest": "^1.2.0"
   }
 }
