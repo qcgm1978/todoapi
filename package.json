@@ -4,8 +4,9 @@
   "description": "Simple api for todo",
   "main": "server.js",
   "scripts": {
+    "test": "mocha test/app/io --recursive --watch",
     "start": "./node_modules/.bin/grunt nodemon",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha && codecov"
+    "test-bak": "istanbul cover node_modules/mocha/bin/_mocha && codecov"
   },
   "repository": {
     "type": "git",
