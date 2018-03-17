@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha test/app/io --recursive --watch",
+    "debug": "node --inspect-brk=9222 test/app/io/debugger.js",
     "start": "node app/models/app.js",
     "fkill": "fkill 3000 -f -v",
     "test-bak": "istanbul cover node_modules/mocha/bin/_mocha && codecov"
