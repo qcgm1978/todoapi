@@ -218,13 +218,80 @@ describe(`The assert module provides a simple set of assertion tests that can be
     });
     it(`assert.strictEqual(actual, expected[, message])`, () => {
 
-        assert.strictEqual(1, 2);
+        assert.throws(() => assert.strictEqual(1, 2));
         // AssertionError: 1 === 2
 
         assert.strictEqual(1, 1);
         // OK
 
-        assert.strictEqual(1, '1');
+        assert.throws(() => assert.strictEqual(1, '1'));
         // AssertionError: 1 === '1'
+    });
+    it(`assert.throws(block[, error][, message])`, () => {
+        assert.throws(
+            () => {
+                throw new Error('Wrong value');
+            },
+            Error
+        );
+        assert.throws(
+            () => {
+                throw new Error('Wrong value');
+            },
+            /value/
+        );
+        assert.throws(
+            () => {
+                throw new Error('Wrong value');
+            },
+            function (err) {
+                if ((err instanceof Error) && /value/.test(err)) {
+                    return true;
+                }
+            },
+            'unexpected error'
+        );
+        const myFunction = () => { throw new Error('custom missing foo') }
+        // THIS IS A MISTAKE! DO NOT DO THIS!
+        assert.throws(myFunction, function (err) {
+            if ((err instanceof Error) && /custom/.test(err)) {
+                return true;
+            }
+        }, 'did not throw with expected message');
+
+        // Do this instead.
+        assert.throws(myFunction, /missing foo/, 'did not throw with expected message');
+    });
+    it(` using ES2015 Object.is(), which uses the SameValueZero comparison.`, () => {
+        assert.equal(Object.is('foo', 'foo'), true);     // true
+        assert.equal(Object.is(this, this), 1);   // true
+
+        assert.equal(Object.is('foo', 'bar'), false);     // false
+        assert.equal(Object.is([], []), false);           // false
+
+        var test = { a: 1 };
+        assert.equal(Object.is(test, test), true);       // true
+
+        assert.equal(Object.is(null, null), true);       // true
+
+        // Special Cases
+        assert.equal(Object.is(0, -0), false);            // false
+        assert.equal(Object.is(-0, -0), true);           // true
+        assert.equal(Object.is(NaN, 0 / 0), true);
+        const a = 0;
+        const b = -a;
+        assert.throws(() => assert.notStrictEqual(a, b));
+        // AssertionError: 0 !== -0
+        // Strict Equality Comparison doesn't distinguish between -0 and +0...
+        assert(!Object.is(a, b));
+        // but Object.is() does!
+
+        const str1 = 'foo';
+        const str2 = 'foo';
+        assert.throws(() => assert.strictEqual(str1 / 1, str2 / 1));
+        // AssertionError: NaN === NaN
+        // Strict Equality Comparison can't be used to check NaN...
+        assert(Object.is(str1 / 1, str2 / 1));
+        // but Object.is() can!
     });
 })

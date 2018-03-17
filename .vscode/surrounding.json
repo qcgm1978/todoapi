@@ -1,13 +1,13 @@
 {
   "settings": [
     {
-      "prefix": "{",
-      "postfix": "}",
+      "prefix": "assert.throws(() => ",
+      "postfix": ")",
       "index": 0
     },
     {
-      "prefix": "{",
-      "postfix": "}",
+      "prefix": "assert.equal(",
+      "postfix": ",)",
       "index": 1
     },
     {
@@ -99,11 +99,6 @@
       "prefix": "{",
       "postfix": "}",
       "index": 19
-    },
-    {
-      "prefix": "assert.throws(() => ",
-      "postfix": ")",
-      "index": 20
     }
   ]
 }
